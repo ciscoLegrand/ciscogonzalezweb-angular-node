@@ -1,0 +1,81 @@
+
+
+<!-- ******************
+*** Modal Imagen Yo ***
+******************* -->
+<div class="modal fade mt-5 py-5" id="imagen" data-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content colorModal11 text-center">
+      <h3 class="mb-4">
+        <img [src]="imagenYoService.imagenPath" class="img-fluid tamanoMiniYo45 ml-3">
+        <span class="badge badge-warning ml-3"> <small>{{imagenYoService.imagenNombre}}</small> </span>
+        <button (click)="cambiarMostrar()"  type="button" class="close text-right colorName3" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </h3>
+      <div class="container backModal12">
+        <div class="modal-body text-center colorTexto10">
+          <div class="form-group">
+            <input (change)="seleccionImg($event.target.files[0])" #img type="file" class="form-control-file d-none" />
+            <button *ngIf="!this.imagenYoService.mostrarNombre"  type="button" (click)="img.click()"
+              class="btn btn-outline-warning btn-lg mt-3">
+              <i class="fas fa-upload mr-2"></i>
+              <span class="badge badge-warning mb-1">Seleccionar archivo</span>
+            </button>
+            <img *ngIf="this.imagenYoService.mostrarNombre"
+              (click)="img.click()" 
+              [src]="imagenYoService.imagenSel"
+              class="img-fluid tamanoMiniYo45">
+          </div>
+          <span *ngIf="this.imagenYoService.mostrarNombre"  class="badge badge-warning"> 
+            {{imagenYoService.imagenSubir.name}}
+          </span>
+        </div>
+      </div>
+      <div class="container">
+        <button (click)="actualizarImagenYo()" type="button" class="btn btn-warning btn-block rounded-0 py-2 mt-4">Actualizar Imagen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- **********************
+*****Modal Tecnologías*****
+************************ -->
+<div *ngIf="tecSobre.mostrarTec" class="modal fade mt-5 py-5" id="tecnologia" data-backdrop="static"
+  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content colorModal11 text-center">
+      <h3 class="colorName3"> <u class="text-uppercase">Actualizar tecnología</u>
+        <button type="button" class="close text-right colorName3" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </h3>
+      <div class="container backModal12 mt-2 mb-2">
+        <form (ngSubmit)="actualizarTec(f)" #f  autocomplete="off">
+          <div class="form-group text-center">
+            <div class="input-group mb-2 mt-4">
+              <input type="text" class="form-control backInputTec47" [(ngModel)]="tecSobre.tecSel.icono" name="icono">
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <div class="input-group mb-2">
+              <input type="text" class="form-control backInputTec47" [(ngModel)]="tecSobre.tecSel.tecnologia" name="tecnologia">
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <textarea class="form-control backInputTec47" [(ngModel)]="tecSobre.tecSel.experiencia" name="experiencia" rows="3">
+            </textarea>
+          </div>
+
+          <div class="container mb-4">
+            <button type="submit" class="btn btn-warning btn-block rounded-0 py-2 mt-4">
+              Actualizar Tecnología
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

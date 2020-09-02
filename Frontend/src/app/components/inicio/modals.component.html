@@ -1,0 +1,77 @@
+<!-- Modal Tecnologías-->
+<div class="modal fade mt-5 py-5" id="modalTecnologias" data-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content colorModal11">
+
+      <div class="container backModal12">
+
+        <div class="modal-body text-center colorName3">
+          <h2> <u class="text-capitalize">Formación tecnológica</u></h2><br>
+
+          <div class="btn-group btn-group-toggle text-center">
+            <label (click)="pagina1()" [ngClass]="modalService.clase1"  class="cursor7 btn-sm mr-2">
+              1
+            </label>
+            <label (click)="pagina2()" [ngClass]="modalService.clase2"  class="cursor7 btn-sm mr-2">
+              2
+            </label>
+            <label (click)="pagina3()" [ngClass]="modalService.clase3"  class="cursor7 btn-sm">
+              3
+            </label>
+          </div>
+
+          <div *ngIf="modalService.mostrar1" class="container colorTexto10">
+            <p *ngFor="let tec of tec1"  class="font-weight-light text-center">
+              <i [class]="tec.icono"></i>
+              <span class="mr-2">{{tec.tecnologia}}:</span>
+              <small>{{tec.experiencia}}</small>
+            </p>
+          </div>
+
+          <div *ngIf="modalService.mostrar2"  class="container colorTexto10">
+            <p *ngFor="let tec of tec2"  class="font-weight-light text-center">
+              <i [class]="tec.icono"></i>
+              <span class="mr-2">{{tec.tecnologia}}:</span>
+              <small>{{tec.experiencia}}</small>
+            </p>
+          </div>
+
+          <div *ngIf="modalService.mostrar3"  class="container colorTexto10">
+            <p *ngFor="let tec of tec3"  class="font-weight-light text-center">
+              <i [class]="tec.icono"></i>
+              <span class="mr-2">{{tec.tecnologia}}:</span>
+              <small>{{tec.experiencia}}</small>
+            </p>
+          </div>
+
+          <hr> 
+          <button (click)="cerrarTec()"  type="button" class="btn btn-outline-warning btn-sm tamanoSalir26">Salir</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sobre Mí-->
+<div class="modal fade mt-5 py-5" id="sobreMi" data-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content colorModal11">
+      <div class="container backModal12">
+        <div *ngFor="let sobre of sobreMi"  class="modal-body text-center colorName3">
+          <h2> <u class="text-capitalize">{{sobre.titulo}}</u></h2><br>
+          <p class="font-weight-light text-justify mt-2 colorTexto10 tab27"> {{sobre.texto1}} </p>
+          <p class="font-weight-light text-justify mt-2 colorTexto10 tab27"> {{sobre.texto2}} </p>
+          <p class="font-weight-light text-justify mt-2 colorTexto10 tab27"> {{sobre.texto3}} </p>
+          <p class="font-weight-light text-justify mt-2 colorTexto10 tab27"> {{sobre.texto4}} </p>
+          <p class="font-weight-light text-justify mt-2 colorTexto10 tab27"> {{sobre.texto5}} </p>
+          <hr>
+          <button (click)="cerrarSobreMi()" type="button"
+            class="btn btn-outline-warning tamanoSalir26 btn-sm">Salir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

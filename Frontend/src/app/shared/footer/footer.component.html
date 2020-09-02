@@ -1,0 +1,62 @@
+
+<div class="container fixed-bottom colorBody1">
+  <div class="container text-center colorNavbar2">
+
+    <button (click)="privacidad()" type="button" class="btn btn-warning btn-sm cookies8 mt-n1">
+      <u>Política de Cookies</u>
+    </button>
+  
+    <div class="row">
+      <div class="col">
+        <a (click)="whatsApp()" class="cursor7">
+          <i class="fab fa-whatsapp mr-3 ml-3"></i>
+        </a>
+        <a href="https://www.facebook.com" target="_blank">
+          <i class="fab fa-facebook mr-3"></i>
+        </a>
+        <a href="mailto:cisco.glez@gmail.com" target="_blank">
+          <i class="fas fa-envelope mr-3"></i>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank">
+          <i class="fab fa-linkedin-in mr-3"></i>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+          <i class="fab fa-instagram mr-3"></i>
+        </a>
+        <a href="https://www.twitter.com/" target="_blank">
+          <i class="fab fa-twitter mr-3"></i>
+        </a>
+      </div>
+    </div>
+    <p class="mb-1">
+      <small class="text-muted colorName3">Copyrigth &copy;&nbsp; Cisco Legrand ({{ year }}) todos los derechos reservadoss</small>
+    </p>
+  </div>
+</div>
+
+<!-- Modal Privacidad-->
+<div class="modal fade mt-5 py-5" id="privacidad" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content colorModal11">
+      <div class="container backModal12">
+      <div class="modal-body text-center colorTexto10">
+        <h4 class="colorName3 text-uppercase mb-4">
+          <u>Politica de privacidad y cookies</u>
+        </h4>
+        <p class="font-weigth-light text-justify ">
+          Donec consectetur est non eros suscipit feugiat. Praesent sed vehicula nulla. Sed eu lorem pharetra, pulvinar nisi ut, vehicula neque. Etiam libero neque, sollicitudin vitae velit sed, mattis condimentum nisi. Quisque rhoncus venenatis orci. In a nulla consectetur, placerat dolor quis, consectetur sem. Proin non lectus maximus, sollicitudin quam sed, finibus arcu. Aenean mauris magna, hendrerit at ex sollicitudin, pellentesque laoreet quam. Nullam at fermentum enim. Etiam a lectus tellus. Etiam at purus elementum, suscipit tortor quis, finibus mauris. Maecenas orci massa, pellentesque sit amet odio lobortis, efficitur mattis dolor.
+        </p>
+        <div class="container text-center">
+          <button *ngIf="modalService.privacidad" (click)="salir()" class="btn btn-outline-warning colorName3"
+            type="button">
+            <i class="fas fa-check"></i>
+          </button>
+          <button *ngIf="!modalService.privacidad" (click)="irAlerta()" class="btn btn-outline-warning colorName3"
+            type="button">
+            <i class="fas fa-check"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

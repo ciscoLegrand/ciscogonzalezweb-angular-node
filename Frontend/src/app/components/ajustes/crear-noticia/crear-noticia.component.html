@@ -1,0 +1,270 @@
+<!-- Crear Noticia -->
+<div *ngIf="tooltip.settings3"  class="container text-left mt-5">
+  <div class="container mb-3">
+    <h4>
+      <span class="badge badge-warning">
+        <i class="fas fa-plus-circle">&nbsp; CREAR NOTICIA </i>
+      </span>
+    </h4>
+  </div>
+  <div class="container backPaginaNoticias34 text-center">
+    <div class="colorImgYoAjustes46">
+      <div class="container48">
+        <button
+          *ngIf="mostrarNoticia"
+          (click)="ocultarBoton()"
+          type="button"
+          class="btn btn-warning btn-block font-weight-bold rounded-0 py-2"
+        >
+          CREAR NOTICIA
+        </button>
+      </div>
+
+      <div *ngIf="!mostrarNoticia" class="form-group">
+        <h5 *ngIf="mostrarImagenNoticia">
+          <span class="badge badge-warning text-uppercase">
+            Imagen Noticia
+          </span>
+        </h5>
+        <input
+          (change)="seleccionImgNoti($event.target.files[0])"
+          type="file"
+          #imgNoti
+          class="form-control-file d-none"
+        />
+        <button
+          *ngIf="!mostrarImagenNoticia"
+          (click)="imgNoti.click()"
+          type="button"
+          class="btn btn-outline-warning btn-lg mt-3"
+        >
+          <i class="fas fa-upload mr-2"></i>
+          <span class="badge badge-warning mb-1"
+            >Selecciona una imagen para la noticia</span
+          >
+        </button>
+        <img
+          *ngIf="mostrarImagenNoticia"
+          (click)="imgNoti.click()"
+          [src]="imagenSel1"
+          class="img-fluid tamanoMiniYo45 mt-2"
+        />
+
+        <div *ngIf="!mostrarYo" class="form-group mt-5">
+          <h5 *ngIf="mostrarImagenYo">
+            <span class="badge badge-warning text-uppercase">
+              Imagen Autor
+            </span>
+          </h5>
+          <input
+            (change)="seleccionImgYo($event.target.files[0])"
+            type="file"
+            #imgYo
+            class="form-control-file d-none"
+          />
+          <button
+            *ngIf="!mostrarImagenYo"
+            (click)="imgYo.click()"
+            type="button"
+            class="btn btn-outline-warning btn-lg mt-3"
+          >
+            <i class="fas fa-upload mr-2"></i>
+            <span class="badge badge-warning mb-1"
+              >Selecciona la imagen del autor</span
+            >
+          </button>
+          <img
+            *ngIf="mostrarImagenYo"
+            (click)="imgYo.click()"
+            [src]="imagenSel2"
+            class="img-fluid tamanoMiniYo45 mt-2"
+          />
+          <div class="container">
+            <button
+              (click)="forularioNoticia()"
+              *ngIf="mostrarImagenYo"
+              type="button"
+              class="btn btn-warning rounded-1 mt-4"
+            >
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <form
+        *ngIf="mostrarFormNoticia"
+        (ngSubmit)="crearNoticia(f)"
+        #f="ngForm"
+        autocomplete="off"
+      >
+        <div class="form-group row text-center mt-4">
+          <label for="inputTitulo" class="col-sm-2 col-form-label"
+            >Títtulo</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control backInputTec47 text-left"
+              id="inputTitulo"
+              [(ngModel)]="noticia.titulo"
+              name="titulo"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row text-center mt-4">
+          <label for="inputSubtitulo" class="col-sm-2 col-form-label"
+            >Subtíttulo</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control backInputTec47 text-left"
+              id="inputSubtitulo"
+              [(ngModel)]="noticia.subtitulo"
+              name="subtitulo"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row text-center mt-4">
+          <label for="inputAutor" class="col-sm-2 col-form-label">Autor</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control backInputTec47 text-left"
+              id="inputAutor"
+              [(ngModel)]="noticia.autor"
+              name="autor"
+            />
+          </div>
+        </div>
+        <fieldset disabled>
+          <div class="form-group row text-center mt-4">
+            <label for="inputImg" class="col-sm-2 col-form-label"
+              >Imagen Noticia</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control backInputTec47"
+                id="inputImg"
+                placeholder="{{ imagenNoticiaSubir.name }}"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row text-center mt-4">
+            <label for="inputImgYo" class="col-sm-2 col-form-label"
+              >Imagen Autor</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control backInputTec47"
+                id="inputImgYo"
+                placeholder="{{ imagenYoSubir.name }}"
+              />
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group row text-center mt-4">
+          <label for="inputTexto1" class="col-sm-2 col-form-label"
+            >Texto 1</label
+          >
+          <div class="col-sm-10">
+            <textarea
+              class="form-control backInputTec47 mb-2 text-left"
+              id="inputTexto1"
+              [(ngModel)]="noticia.texto1"
+              name="texto1"
+              rows="3"
+            >
+            </textarea>
+          </div>
+        </div>
+
+        <div class="form-group row text-center mt-4">
+          <label for="inputTexto2" class="col-sm-2 col-form-label"
+            >Texto 2</label
+          >
+          <div class="col-sm-10">
+            <textarea
+              class="form-control backInputTec47 mb-2 text-left"
+              id="inputTexto2"
+              [(ngModel)]="noticia.texto2"
+              name="texto2"
+              rows="3"
+            >
+            </textarea>
+          </div>
+        </div>
+
+        <div class="form-group row text-center mt-4">
+          <label for="inputTexto3" class="col-sm-2 col-form-label"
+            >Texto 3</label
+          >
+          <div class="col-sm-10">
+            <textarea
+              class="form-control backInputTec47 mb-2 text-left"
+              id="inputTexto3"
+              [(ngModel)]="noticia.texto3"
+              name="texto3"
+              rows="3"
+            >
+            </textarea>
+          </div>
+        </div>
+
+        <div class="form-group row text-center mt-4">
+          <label for="inputTexto4" class="col-sm-2 col-form-label"
+            >Texto 4</label
+          >
+          <div class="col-sm-10">
+            <textarea
+              class="form-control backInputTec47 mb-2 text-left"
+              id="inputTexto4"
+              [(ngModel)]="noticia.texto4"
+              name="texto4"
+              rows="3"
+            >
+            </textarea>
+          </div>
+        </div>
+
+        <div class="form-group row text-center mt-4">
+          <label for="inputTexto5" class="col-sm-2 col-form-label"
+            >Texto 5</label
+          >
+          <div class="col-sm-10">
+            <textarea
+              class="form-control backInputTec47 mb-2 text-left"
+              id="inputTexto5"
+              [(ngModel)]="noticia.texto5"
+              name="texto5"
+              rows="3"
+            >
+            </textarea>
+          </div>
+        </div>
+
+        <div class="container48">
+          <button
+            type="submit"
+            class="btn btn-warning btn-block rounded-0 mt-2 text-uppercase"
+          >
+            Crear Noticia
+          </button>
+          <button
+            (click)="salirNoticia()"
+            type="button"
+            class="btn btn-warning btn-block rounded-0 mt-2 text-uppercase"
+          >
+            Salir
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

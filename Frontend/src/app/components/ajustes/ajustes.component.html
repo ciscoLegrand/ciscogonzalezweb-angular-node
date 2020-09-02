@@ -1,0 +1,158 @@
+<div class="container">
+  <h3 class="text-uppercase font-weight-bold mt-5 text-center mb-3">
+    <span class="badge badge-warning">Settings</span>
+  </h3>
+  <div *ngIf="tooltip.settings">
+    <!-- Actualizar Imagenes Yo -->
+    <div class="container text-left">
+      <div class="container mb-3">
+        <h4>
+          <span class="badge badge-warning">
+            <i class="fas fa-camera">&nbsp; ACTUALIZAR IMAGENES YO </i>
+          </span>
+        </h4>
+      </div>
+      <div class="container backPaginaNoticias34 text-center">
+        <div class="colorImgYoAjustes46">
+          <div class="row text-center">
+            <div class="col">
+              <img
+                (click)="editarImgYo(img)"
+                *ngFor="let img of imagenYoService.imgenesYo"
+                [src]="img.img"
+                class="img-fluid tamanoMiniYo45 cursor7 ml-4 mr-4 mb-1 mt-1"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Click para EDITAR"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actializar tecnologías -->
+    <div class="container text-left mt-5">
+      <div class="container mb-3">
+        <h4>
+          <span class="badge badge-warning">
+            <i class="fas fa-laptop-code">&nbsp; ACTUALIZAR TECNOLOGÍAS </i>
+          </span>
+        </h4>
+      </div>
+      <div class="container backPaginaNoticias34 text-center">
+        <div class="colorImgYoAjustes46">
+          <div class="row">
+            <div
+              *ngFor="let tec of tecnologiasDestacadas"
+              class="col text-center"
+              data-trigger="hover"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Click para EDITAR"
+            >
+              <div (click)="editarTec(tec)" class="card-body cursor7">
+                <i [class]="tec.icono"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Actializar sobreMí -->
+  <div *ngIf="tooltip.settings2"  class="container text-left mt-5">
+    <div class="container mb-3">
+      <h4>
+        <span class="badge badge-warning">
+          <i class="fas fa-smile">&nbsp; ACTUALIZAR SOBREMÍ </i>
+        </span>
+      </h4>
+    </div>
+    <div class="container backPaginaNoticias34 text-center">
+      <div class="colorImgYoAjustes46">
+        <div class="container48">
+          <button
+            *ngIf="!tecSobre.mostrarSobreMi"
+            (click)="actualizarSobreMi()"
+            type="button"
+            class="btn btn-warning btn-block font-weight-bold rounded-0 py-2"
+          >
+            EDITAR SOBREMÍ
+          </button>
+        </div>
+
+        <div *ngIf="tecSobre.mostrarSobreMi" class="container mt-2 mb-4">
+          <form (ngSubmit)="actualizarSobreMiFull(f)" #f="ngForm">
+            <div class="form-group text-center mt-4">
+              <div class="form-group text-center">
+                <div class="input-group mb-2 mt-4">
+                  <input
+                    disabled
+                    type="text"
+                    class="form-control backInputTec47"
+                    [(ngModel)]="sobreMiBackend.titulo"
+                    name="titulo"
+                  />
+                </div>
+              </div>
+              <textarea
+                class="form-control backInputTec47 mb-2"
+                [(ngModel)]="sobreMiBackend.texto1"
+                name="texto1"
+                rows="4"
+              >
+              </textarea>
+              <textarea
+                class="form-control backInputTec47 mb-2"
+                [(ngModel)]="sobreMiBackend.texto2"
+                name="texto2"
+                rows="4"
+              >
+              </textarea>
+              <textarea
+                class="form-control backInputTec47 mb-2"
+                [(ngModel)]="sobreMiBackend.texto3"
+                name="texto3"
+                rows="4"
+              >
+              </textarea>
+              <textarea
+                class="form-control backInputTec47 mb-2"
+                [(ngModel)]="sobreMiBackend.texto4"
+                name="texto4"
+                rows="4"
+              >
+              </textarea>
+              <textarea
+                class="form-control backInputTec47"
+                [(ngModel)]="sobreMiBackend.texto5"
+                name="texto5"
+                rows="4"
+              >
+              </textarea>
+            </div>
+            <div class="container48">
+              <button
+                type="submit"
+                class="btn btn-warning btn-block rounded-0 mt-2"
+              >
+                Actualizar
+              </button>
+              <button
+                (click)="cerrarSobreMi()"
+                type="button"
+                class="btn btn-warning btn-block rounded-0 mt-2"
+              >
+                Salir SIN actualizar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-crear-noticia></app-crear-noticia>
+<app-modals></app-modals>

@@ -1,0 +1,41 @@
+<div class="container">
+  <h3 class="colorName3 text-uppercase font-weight-bold text-center">
+    <span class="badge badge-warning">{{noticiasService.noticiaSel.titulo}}</span>
+  </h3>
+
+
+  <div class="container mt-3">
+    <div class="container backPaginaNoticias34">
+      <div class="card backNoticiaCompleta41 text-center">
+
+        <h5 class="card-title backNoticiaCompleta42">{{noticiasService.noticiaSel.subtitulo}}</h5>
+
+        <img [src]="noticiasService.noticiaSel.img | imagenNoticia"  class="card-img img-fluid">
+
+        <div class="card-body text-justify">
+
+          <p class="card-text colorNoti31 tab27">{{noticiasService.noticiaSel.texto1}} </p>
+          <p class="card-text colorNoti31 tab27">{{noticiasService.noticiaSel.texto2}} </p>
+          <p class="card-text colorNoti31 tab27">{{noticiasService.noticiaSel.texto3}} </p>
+          <p class="card-text colorNoti31 tab27">{{noticiasService.noticiaSel.texto4}} </p>
+          <p class="card-text colorNoti31 tab27">{{noticiasService.noticiaSel.texto5}} </p>
+          <div class="text-center">
+            <i (click)="back()"  class="fas fa-arrow-alt-circle-left fa-2x cursor7"></i>
+          </div>
+        </div>
+        <div class="container text-center backPaginaNoticiaCompleta43">
+          <p class="card-text"><span class="backPlus37">
+              <img [src]="noticiasService.noticiaSel.imgYo | imagenYo" class="tamanoYo29 backImgNoti30 rounded-circle mr-2">
+            </span>
+            <span class="mr-2">
+              <u>{{noticiasService.noticiaSel.autor}}</u>
+            </span>
+            <span>
+              <small class="colorTexto40">{{noticiasService.noticiaSel.created | date: "fullDate"}}</small>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+  <h3 class="colorName3xt-uppercase font-weight-bold text-left">
+    <span class="badge badge-warning text-uppercase animated fadeInUp"
+      >Cisco Gonzalez Noticias</span
+    >
+  </h3>
+  <div class="container mt-3">
+    <div class="container backPaginaNoticias34 animated fadeIn slow">
+      <div class="row">
+        <div
+          (click)="mostrarNoticia(noticia)"
+          *ngFor="let noticia of noticias"
+          class="col-12 col-md-4 col-lg-3 mb-3 cursor7"
+        >
+          <div class="card backNoticias35">
+            <img [src]="noticia.img | imagenNoticia" class="card-img-top animated fadeIn slow" />
+            <div class="card-body text-center">
+              <h5 class="card-title backNoticias36">{{ noticia.titulo }}</h5>
+              <p class="card-text sub39">{{ noticia.subtitulo }}</p>
+              <p class="card-text">
+                <small class="colorTexto40">
+                  {{ noticia.created | date: "longDate" }}</small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <button
+              [disabled]="noticiasService.pagina === 1"
+              (click)="restar()"
+              type="button"
+              class="btn btn-warning backPlus38 backPlus37 mr-5"
+            >
+              <i class="fas fa-minus"></i>
+            </button>
+            <span class="badge badge-pill badge-warning text-uppercase"
+              >página {{ noticiasService.pagina }}</span
+            >
+            <button
+              [disabled]="paginaLength === false"
+              (click)="sumar()"
+              type="button"
+              class="btn btn-warning backPlus38 backPlus37 ml-5"
+            >
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
